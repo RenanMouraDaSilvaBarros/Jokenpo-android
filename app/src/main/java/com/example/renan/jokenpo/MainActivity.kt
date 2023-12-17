@@ -2,7 +2,6 @@ package com.example.renan.jokenpo
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -49,7 +48,11 @@ class MainActivity : AppCompatActivity() {
         val imageMachine = findViewById<ImageView>(R.id.imageMachine)
 
         imageMachine.setImageResource(images[playMachine])
-
+        imageMachine.scaleX = imageSelectedScaleX
+        imageMachine.scaleY = imageSelectedScaleY
+        imageMachine.postDelayed({
+            imageMachine.scaleX = imageDefaultScaleX
+            imageMachine.scaleY = imageDefaultScaleY }, 1000)
 
         val result = matrix[userPlay][playMachine]
         val messageResult = message[result]
